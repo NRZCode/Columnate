@@ -62,7 +62,7 @@ main() {
     declare -A buffer
     sep=' | '
 
-    mapfile -t < <(grep -n '' /usr/share/dict/brazilian)
+    mapfile -t < <(grep -n '' "$1")
     wcol=$(awk '{if (length($0) > wcol) wcol=length($0)} END {print wcol}' <(grep -n '' "$1"))
 
     (( width=COLUMNS, height=LINES - 4 ))
